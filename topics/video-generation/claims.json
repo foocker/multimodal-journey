@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "topic_id": "video-generation",
+  "updated": "2026-11-19",
+  "review_status": "draft",
+  "reviewer": null,
+  "claims": [
+    {
+      "id": "VG-001",
+      "statement": "Seaweed-7B 公开了约 7B 模型和 665,000 H100 GPU 小时预算，并强调训练/部署成本。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seaweed-7b",
+          "locator": "arXiv 2504.08685v2, PDF pp. 1–2",
+          "scope": "作者报告的模型与预算；未独立复现"
+        }
+      ],
+      "limits": "不能描述成只追求最大参数；不能据此确认早期商业模型的全部配置。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-002",
+      "statement": "Seedance 1.0 的 MM-RoPE 设计明确引用 Seaweed 和 LCT。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-1.0",
+          "locator": "arXiv 2506.09113v2, PDF p. 4, Multishot MM-RoPE",
+          "scope": "following Seaweed [24] and LCT [9]"
+        }
+      ],
+      "limits": "支持具体设计承接，不证明权重、完整架构或组织合并。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-003",
+      "statement": "Seedance 1.0 报告在 NVIDIA L20 上用 41.4 秒生成 5 秒、1080p 视频。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-1.0",
+          "locator": "arXiv 2506.09113v2, PDF p. 1, abstract",
+          "scope": "作者给定版本与硬件下的报告"
+        }
+      ],
+      "limits": "5 秒是成片长度；不能写成生成耗时。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-004",
+      "statement": "Seedance 1.5 Pro 已公开采用双分支 Diffusion Transformer 做原生音视频联合生成。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-1.5-pro",
+          "locator": "arXiv 2512.13507v3, PDF pp. 1–2",
+          "scope": "摘要明确写 dual-branch DiT，介绍跨模态模块与数据管线"
+        }
+      ],
+      "limits": "不支持把双分支结构首次出现放到 2.0；也不补写 2.0 未披露的内部结构。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-005",
+      "statement": "Seedance 2.0 参数量已由官方模型卡确认为 200B。",
+      "status": "unverified",
+      "evidence": [
+        {
+          "source_id": "seedance-2.0",
+          "locator": "arXiv 2604.14148v1, PDF full text and pp. 1–2",
+          "scope": "本轮未定位到参数量披露；这是待核实的目标命题"
+        }
+      ],
+      "limits": "未披露不是证明实际配置不可能为 200B；需要直接可靠来源。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-006",
+      "statement": "2025 年组织调整使 PixelDance 与 Seaweed 两套完整架构或权重合并。",
+      "status": "unverified",
+      "evidence": [
+        {
+          "source_id": "seedance-1.0",
+          "locator": "arXiv 2506.09113v2, PDF p. 4",
+          "scope": "仅发现位置编码相关设计引用，不足以证明该完整命题"
+        }
+      ],
+      "limits": "组织调整、设计融合和权重合并分别查证。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-007",
+      "statement": "Seedance 1.0 的反馈数据流程包含线上用户提示词与人工偏好标注。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-1.0",
+          "locator": "arXiv 2506.09113v2, PDF p. 11, §4.4.1",
+          "scope": "collect prompts from training datasets and online users; human preference labeling"
+        }
+      ],
+      "limits": "限定到该报告已写出的流程。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-008",
+      "statement": "点赞、重绘和导出事件已明确以特定 RLHF/DPO 方法用于 Seedance 2.0。",
+      "status": "unverified",
+      "evidence": [
+        {
+          "source_id": "seedance-1.0",
+          "locator": "arXiv 2506.09113v2, PDF p. 11",
+          "scope": "支持一般提示与标注流程，不直接支持这些具体事件和版本"
+        }
+      ],
+      "limits": "不能将行业常见反馈机制当作已公开的产品内部实现。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-009",
+      "statement": "火山引擎已向客户开放特定 Seedance 视频 LoRA 微调接口。",
+      "status": "unverified",
+      "evidence": [
+        {
+          "source_id": "seaweed-7b",
+          "locator": "arXiv 2504.08685v2, PDF pp. 17–19",
+          "scope": "Seaweed 讨论轻量适配"
+        },
+        {
+          "source_id": "seedance-1.0",
+          "locator": "arXiv 2506.09113v2, PDF p. 6",
+          "scope": "这里的 LoRA 用于提示改写模型"
+        }
+      ],
+      "limits": "需要当前产品接口与开放条款；技术可行不等于服务已开放。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-010",
+      "statement": "Seaweed-7B 公开论文等于已确认模型权重全部开源。",
+      "status": "unverified",
+      "evidence": [
+        {
+          "source_id": "seaweed-project",
+          "locator": "project page visited 2026-11-19",
+          "scope": "确认研究展示与报告入口，本轮未确认完整权重发布"
+        }
+      ],
+      "limits": "代码、数据、权重的发布和许可分别记录。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-011",
+      "statement": "Seaweed-APT 的完整实时流程依赖论文给定的多卡硬件配置。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seaweed-apt",
+          "locator": "arXiv 2501.08316v3, PDF p. 15, Appendix E",
+          "scope": "单 H100 完整流程 6.03 秒，8 H100 并行对应实时描述"
+        }
+      ],
+      "limits": "不要把单步前向速度等同任意设备的端到端实时。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-012",
+      "statement": "VINCIE 从视频学图像编辑，VINCIE-NExT 将图像编辑迁移到视频。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "vincie",
+          "locator": "arXiv 2506.10941v2, PDF pp. 1–3",
+          "scope": "视频序列构造与图像编辑学习"
+        },
+        {
+          "source_id": "vincie-next",
+          "locator": "arXiv 2610.12104v1, PDF pp. 1–3",
+          "scope": "图像编辑上下文向视频传播"
+        }
+      ],
+      "limits": "不自动证明二者是 Seedance 2.0 的具体实现。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-013",
+      "statement": "Seedance 2.0 公开支持四模态参考与音视频生成，包含编辑和续写。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-2.0",
+          "locator": "arXiv 2604.14148v1, PDF pp. 1–3, 20–22",
+          "scope": "产品能力与模型卡中的任务评测"
+        }
+      ],
+      "limits": "不是完整训练配方；部分子任务存在作者报告的局限。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-014",
+      "statement": "RewardDance 的 26B 是奖励模型规模，其实验包含 Seedance-1.0。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "rewarddance",
+          "locator": "arXiv 2509.08826v1, PDF p. 1, Figure 1 and abstract",
+          "scope": "奖励模型扩展及作者实验"
+        }
+      ],
+      "limits": "不能把 26B 混为视频生成器参数。",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-015",
+      "statement": "2024 年两款模型在发布会同发，且当时内部明确按某种能力分工赛马。",
+      "status": "unverified",
+      "evidence": [],
+      "limits": "当前登记论文不足以确认整个组织/产品命题；需找到官方发布与可靠采访的原始记录。",
+      "checked_on": "2026-11-19"
+    }
+  ]
+}

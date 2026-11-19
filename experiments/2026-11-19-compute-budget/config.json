@@ -1,0 +1,23 @@
+{
+  "kind": "illustrative_assumptions_not_measurements",
+  "currency": "CNY (hypothetical)",
+  "deliveries": 10,
+  "scenarios": [
+    {
+      "id": "illustrative-baseline",
+      "acceptance_probability": 0.25,
+      "generation_price": 1.2,
+      "review_seconds": 45,
+      "editing_minutes_per_delivery": 8,
+      "hourly_labor_price": 60
+    },
+    {
+      "id": "illustrative-higher-control",
+      "acceptance_probability": 0.5,
+      "generation_price": 1.8,
+      "review_seconds": 45,
+      "editing_minutes_per_delivery": 8,
+      "hourly_labor_price": 60
+    }
+  ]
+}

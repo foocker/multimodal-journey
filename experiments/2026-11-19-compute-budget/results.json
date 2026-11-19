@@ -1,0 +1,25 @@
+{
+  "kind": "illustrative_assumptions_not_measurements",
+  "currency": "CNY (hypothetical)",
+  "deliveries": 10,
+  "results": [
+    {
+      "id": "illustrative-baseline",
+      "expected_generations": 40.0,
+      "generation_cost": 48.0,
+      "review_cost": 30.0,
+      "editing_cost": 80.0,
+      "total_cost": 158.0,
+      "cost_per_delivery": 15.8
+    },
+    {
+      "id": "illustrative-higher-control",
+      "expected_generations": 20.0,
+      "generation_cost": 36.0,
+      "review_cost": 15.0,
+      "editing_cost": 80.0,
+      "total_cost": 131.0,
+      "cost_per_delivery": 13.1
+    }
+  ]
+}

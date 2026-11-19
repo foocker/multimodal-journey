@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "seaweed-project",
+      "type": "official_project",
+      "title": "Seaweed research project",
+      "url": "https://seaweed.video/",
+      "checked_on": "2026-11-19",
+      "notes": "展示 Seaweed 及 LCT、Phantom、APT 等相关研究；页面内容会继续变化。"
+    },
+    {
+      "id": "vincie-code",
+      "type": "official_repository",
+      "title": "ByteDance-Seed/VINCIE",
+      "url": "https://github.com/ByteDance-Seed/VINCIE",
+      "checked_on": "2026-11-19",
+      "notes": "论文、代码和权重入口。本轮未导入第三方代码，也未固定用于实验的 commit。"
+    },
+    {
+      "id": "seedance-product",
+      "type": "official_product",
+      "title": "Seedance 2.0 official page",
+      "url": "https://seed.bytedance.com/en/seedance2_0",
+      "checked_on": "2026-11-19",
+      "notes": "产品能力参考；技术与评测细节优先引用固定版本模型卡。"
+    },
+    {
+      "id": "profile-screenshot",
+      "type": "user_provided_screenshot",
+      "title": "29岁掌舵字节视频大模型：曾妍与Seedance的“技术豪赌”",
+      "url": null,
+      "local_path": "sources/media/2026-11-19-seedance-profile.md",
+      "checked_on": "2026-11-19",
+      "status": "unverified",
+      "notes": "来源是本次对话截图；作者、发布日期和原文 URL 未确认。人物、薪酬、组织和参数说法未按报道直接认定为事实。"
+    },
+    {
+      "id": "user-evolution-notes",
+      "type": "working_hypothesis",
+      "title": "用户提出的技术演进与业务落地主线",
+      "url": null,
+      "local_path": "research/2026-11-19-seedance/inputs/evolution-hypotheses.md",
+      "checked_on": "2026-11-19",
+      "status": "unverified",
+      "notes": "用户工作假设的摘要；用作检索问题，不作为独立原始证据。"
+    }
+  ]
+}
