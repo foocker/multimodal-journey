@@ -69,6 +69,10 @@ applications/video-production/             工作流、可用率与成本
 
 ## PDF、数据与中间文件
 
+独立文章只显示 `source_ids`，不显示细粒度页码/章节/图号；定位继续保留在研究层。文章由 [目录](../articles.json) 连接，遵循 [独立文章约定](article-reading.md)，避免把研究札记直接作为成文输出。
+
+用户要求的必要论文裁图可保存在 `assets/paper-figures/`，由 manifest 记录来源和可重做的裁剪参数；PDF 和整篇全文仍放缓存。离线文章 HTML 由源码生成到 `.cache/reading/`，不形成第二份需要手工维护的正文。
+
 PDF 在 `sources/papers.json` 中保留 URL、版本、SHA-256、页数和检查日期；可通过脚本下载到 `.cache/`。不提交 PDF、模型权重、大型数据集或视频。
 
 小型 JSON 配置、手工构造的教学数据、标注规范、清洗脚本和汇总结果可以提交。原始数据、全文抽取、临时搜索页面、批量输出通过 manifest 或研究日志记录来源和处理步骤。
@@ -77,4 +81,8 @@ PDF 在 `sources/papers.json` 中保留 URL、版本、SHA-256、页数和检查
 
 ## 暂时采用的约定
 
+2026-11-22 增加 `topics/video-generation/seedance-2.5/` 作为 M00–M20 的学习/设计/审核入口。通用基础仍只放 `algorithms/`，数据配方/业务方案沿用各自目录，避免按品牌复制全部知识。Wan 轻量路线与 LTX 原系列联合候选方案各自保留表示和训练边界；新的 training record schema 面向单任务样本，与旧的多镜头 scene schema 并存，互不静默升级。
+
 来源目录以 JSON 为准，Markdown 索引由工具生成。当前不引入数据库、专用知识库服务或自动论文打分；等实际检索、协作规模产生需要时再调整。结构变更写进本文件，并保持旧链接可追溯。
+
+代码说明采用两层：`algorithms/examples/` 放独立编写的机制片段，`sources/code.json` 记录上游工程固定 commit、许可证和入口。代码路线文章连接两者；第三方源码只在缓存中阅读，不为了配套文章复制一套训练框架。默认不为教学片段进行运行验证，按用户当前要求维护。

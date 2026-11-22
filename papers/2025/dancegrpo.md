@@ -1,7 +1,7 @@
 ---
 status: draft
-updated: 2026-11-19
-source_ids: ["dancegrpo"]
+updated: 2026-11-22
+source_ids: ["dancegrpo", "seedance-1.0"]
 topic_ids: ["video-generation"]
 ---
 
@@ -31,6 +31,12 @@ topic_ids: ["video-generation"]
 有研究联系和方法依据；论文没有证明某一产品的点赞、重绘、导出事件具体如何进入训练。
 
 实验数据来自论文作者的设置，本仓库本轮没有重新训练或复测。对于闭源产品，没有披露的实现不能用相邻论文补齐为既定事实。
+
+## 2026-11-22 定点阅读与产品关系修正
+
+v4 PDF pp.3–5 将采样写为 MDP，SDE 提供非退化转移密度，组内相对优势与 clipped surrogate 更新，多个奖励分别标准化优势后聚合。共享组内初始噪声是其实验设计，不是所有视觉 RL 的必要条件。固定噪声的 ODE 确定，但不同初始噪声仍能有不同结果。
+
+Seedance 1.0 v2 p.12 §4.4.3 描述自身直接最大化多奖励的方法，并对比 DPO/PPO/GRPO；因此文献引用不能当成采用 DanceGRPO 的证据。当前摘录“固定核心引擎”的说法收缩为相关方法/候选路线。[M09](../../algorithms/post-training/README.md) 维护目标与训练边界。
 
 ## 下一次阅读
 

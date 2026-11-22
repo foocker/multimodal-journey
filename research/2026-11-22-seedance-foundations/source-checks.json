@@ -1,0 +1,76 @@
+{
+  "checked_on": "2026-11-22",
+  "kind": "source_identity_and_targeted_reading",
+  "scientific_reproduction": false,
+  "papers": [
+    {
+      "id": "magvit-v2",
+      "arxiv_id": "2310.05737",
+      "arxiv_version": "v3",
+      "page_count": 19,
+      "bytes": 3608249,
+      "sha256": "b393503a10d53239ff4ebc67124d99fcc96777e78e4d525b1dd17ba43a474537",
+      "reading_scope": "PDF p.5 §3.2 / Figure 2"
+    },
+    {
+      "id": "rope",
+      "arxiv_id": "2104.09864",
+      "arxiv_version": "v1",
+      "page_count": 12,
+      "bytes": 437245,
+      "sha256": "2987844c31e154ee10c2e59b64b0ba2f793447bc0c6eeeb2bf435141ed0b69db",
+      "reading_scope": "§3.2 rotation construction"
+    },
+    {
+      "id": "tarsier2",
+      "arxiv_id": "2501.07888",
+      "arxiv_version": "v1",
+      "page_count": 46,
+      "bytes": 10390064,
+      "sha256": "a975872d94e4dfe68911a00dfe260695eb316be2e957286082c30ac6f456a3d1",
+      "reading_scope": "PDF pp.6–11, p.36 Table 12"
+    },
+    {
+      "id": "longlive",
+      "arxiv_id": "2509.22622",
+      "arxiv_version": "v2",
+      "page_count": 21,
+      "bytes": 24388253,
+      "sha256": "c02db70004d281be6f35b760052457b86860eebbb6356abd3044690a96b54905",
+      "reading_scope": "abstract and PDF pp.4–6 §3"
+    },
+    {
+      "id": "wan-2.1",
+      "arxiv_id": "2503.20314",
+      "arxiv_version": "v2",
+      "page_count": 60,
+      "bytes": 21903728,
+      "sha256": "ca859378a8296fe1a09fb5127680bcdc7e6499fb340e989a598c904720424e9c",
+      "reading_scope": "abstract and PDF pp.10–14"
+    }
+  ],
+  "web": [
+    {
+      "id": "seedance-2.5-release",
+      "url": "https://seed.bytedance.com/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "checked_on": "2026-11-22",
+      "http_status": 200,
+      "snapshot_sha256": "b51220b78f06a92324f1384b46bdfa412ae0ff29749e45a0549da10e8e6fa151",
+      "snapshot_bytes": 335159,
+      "cache_path": ".cache/research/2026-11-22/one-take-creation-flexible-referencing-introducing-seedance-2-5.html"
+    },
+    {
+      "id": "seedance-2.5-product",
+      "url": "https://seed.bytedance.com/en/seedance2_5",
+      "checked_on": "2026-11-22",
+      "http_status": 200,
+      "snapshot_sha256": "8c54b568e56e1aaf1835f66d23f758fc876397292923b869a4a5eca7b61f48f3",
+      "snapshot_bytes": 328357,
+      "cache_path": ".cache/research/2026-11-22/en_seedance2_5.html"
+    }
+  ],
+  "input": {
+    "path": "talk2deepseek.md",
+    "sha256": "8532d408b5e47891be56214433d599d27938c8906b0a5671ce16b334548b0357"
+  }
+}

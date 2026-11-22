@@ -6,8 +6,10 @@
 
 ## 从这里开始
 
+- [Seedance 2.5：基础到落地，M00–M20](topics/video-generation/seedance-2.5/README.md)：基础、数据、训练、推理、业务、代码与完整候选方案。
+- [代码路线与仓库选择](docs/code-paths.md)：12 份极简机制代码，10 个上游仓库的 11 份固定版本记录、44 个源码/配置入口。
 - [视频生成专题](topics/video-generation/README.md)：技术演进、论文路线、证据与待核实问题。
-- [论文索引](papers/README.md)：18 篇论文的 URL、版本、阅读笔记与重点页码。
+- [论文索引](papers/README.md)：28 篇论文的 URL、版本、阅读笔记与证据定位。
 - [第一轮研究日志](research/2026-11-19-seedance/README.md)：问题如何提出、查找过程、历史代码、初稿和纠错。
 - [目录设计](docs/organization.md)：为什么这样组织，以及新内容应放在哪里。
 - [工作流程](docs/workflow.md)：查资料 → 读论文 → 验证 → 实验 → 综述 → 修订。
@@ -36,6 +38,15 @@ docs/          仓库约定、目录取舍与后续计划
 
 ## 本地使用
 
+文章离线阅读（包含公式渲染与内嵌插图）：
+
+```bash
+npm ci --ignore-scripts
+npm run articles:build
+```
+
+打开 `.cache/reading/index.html`；每篇 HTML 可单独复制阅读，无需联网。[阅读与写作约定](docs/article-reading.md) 说明公式、插图和来源的维护方式。
+
 核心检查和实验只依赖 Python 3.10+ 标准库。
 
 ```bash
@@ -43,13 +54,15 @@ python scripts/check_repo.py
 python scripts/papers.py list
 python scripts/papers.py download seedance-2.0
 python experiments/2026-11-19-compute-budget/run.py
+python experiments/2026-11-22-foundation-probes/run.py
 ```
 
-如需抽取本地 PDF 全文：
+如需抽取本地 PDF 全文或校验新的训练数据格式：
 
 ```bash
 python -m pip install -r requirements.txt
 python scripts/papers.py extract seedance-2.0
+python scripts/training_data.py datasets/recipes/audio-video-production/example-records.jsonl
 ```
 
 PDF 默认保存在 `.cache/papers/`；目录可通过 `--cache-dir` 指定。下载不改变笔记的阅读或审核状态。
@@ -66,6 +79,8 @@ PDF 默认保存在 `.cache/papers/`；目录可通过 `--cache-dir` 指定。�
 
 ## 当前进度
 
-第一批资料围绕 PixelDance、Seaweed、Seedance、多镜头、音视频联合生成、偏好优化和推理效率。18 篇论文已登记并建立初步笔记；尚未逐篇完成复现。商业分析是研究框架，未声称已有客户、收入或生产部署。
+28 篇论文已登记。21 篇独立文章使用 `$`/`$$` 公式、论文裁图和离线阅读环境，覆盖基础、代码选型与完整候选方案；研究定位与纠错留在独立记录。代码层补充 12 份极简机制片段，并为 10 个上游仓库登记 11 份固定版本、44 个源码/配置入口；按用户要求未运行这些教学片段。
+
+各块仍为 draft，待 [逐块审核](topics/video-generation/seedance-2.5/review.md)。完整联合方案已选定共同主干、参考/编辑/几何接口及训练课程，见 [候选架构](topics/video-generation/seedance-2.5/integrated-design.md) 与 [训练配方](topics/video-generation/seedance-2.5/integrated-training.md)。尚无真实模型训练、推理性能实测或业务试验结果；本次补充见 [关键设计研究](research/2026-11-22-key-design/README.md)。
 
 后续优先任务见 [路线图](docs/roadmap.md)。

@@ -1,0 +1,98 @@
+{
+  "spec_version": "candidate-av-v1",
+  "status": "proposed_not_executed",
+  "target": "A coherent candidate for multimodal references, long narratives and local editing; not Seedance reverse engineering",
+  "base": {
+    "family": "original LTX-2 non-distilled audiovisual model",
+    "code_source_id": "ltx-original-code",
+    "commit": "bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638",
+    "checkpoint_hash": null,
+    "checkpoint_status": "not_downloaded",
+    "keep_native_vae_text_normalization_scheduler": true,
+    "later_model_families_interchangeable": false
+  },
+  "representations": {
+    "video": {"layout": "B,C,T,H,W", "channels": 128, "compression": [8, 32, 32], "valid_frames": "1+8*k"},
+    "audio": {"codec_layout": "B,8,T,16", "transformer_layout": "B,T,128", "approximate_tokens_per_second": 25, "codec_input_hz": 16000, "waveform_output_hz": 24000},
+    "time": {"events": "seconds from common media origin", "latent_position": "native codec coverage and temporal coordinates", "noise_convention_for_explanation": "0=data,1=noise; map to native implementation"}
+  },
+  "example_request": {
+    "kind": "format_and_design_example",
+    "output_seconds": 30,
+    "fps": 24,
+    "output_frames": 720,
+    "internal_frames": 721,
+    "internal_resolution": [512, 896],
+    "video_latent_grid": [91, 16, 28],
+    "video_tokens": 40768,
+    "approximate_audio_tokens": 750,
+    "training_padding_policy": "Track valid pixels/frames and latent receptive fields; do not drop a whole mixed last latent as a substitute"
+  },
+  "reference_memory": {
+    "image_file_limit": 30,
+    "video_file_limit": 10,
+    "audio_file_limit": 10,
+    "image_summary_tokens": 32,
+    "video_summary_tokens": 64,
+    "audio_summary_tokens": 32,
+    "visual_budget": 2048,
+    "audio_budget": 512,
+    "budget_scope": "pooled identity/style summaries; aligned fixed soundtrack uses full native audio tokens separately",
+    "quality_at_file_limit": "unverified",
+    "binding_fields": ["asset_id", "subject_id", "speaker_id", "role", "shot_ids", "active_intervals_seconds", "priority", "confidence"],
+    "fusion": "new gated cross-attention after every fourth native block, pilot choice",
+    "time_gate": "explicit soft interval bias; not a claimed WeRoPE reproduction",
+    "subject_query_policy": "shot-level allowed subject set by default; spatial hard mask only with layout/source tracking/reliable predicted regions available at inference",
+    "empty_condition": "always-visible null token or skip new branch",
+    "motion_only_video": "pose/flow/camera context path; appearance tokens disabled by role"
+  },
+  "source_condition": {
+    "mask_one_means": "regenerate",
+    "reactive": "F*M",
+    "inactive": "F*(1-M)",
+    "encoding": "independent asset VAE encode then native-grid-aligned context projection",
+    "source_context_noise": "clean fixed condition",
+    "known_target_clamp": "optional separate policy with fixed noise path, matched in training",
+    "strict_preservation": "reuse source pixels/audio outside authorized output edit range"
+  },
+  "task_states": {
+    "generate_av": {"video": "noisy_target", "audio": "noisy_target", "update": ["video", "audio"]},
+    "video_without_audio": {"video": "noisy_target", "audio": "absent", "update": ["video"], "audio_loss_and_invalid_av_edges": false},
+    "visual_edit_keep_audio": {"video": "noisy_target_plus_clean_source_context", "audio": "clean_source_condition", "update": ["video"], "delivery_audio": "original_waveform"},
+    "causal_extension": {"video": "clean_history_plus_noisy_current", "audio": "clean_history_plus_noisy_current", "update": ["current_video", "current_audio"]},
+    "mask_roles": ["condition_visibility", "denoise_update", "training_loss", "delivery_compositing"],
+    "policy_status": "New conditional modes must be represented during training; not inference-only switches"
+  },
+  "model_versions": {
+    "joint": {"attention": "retain native joint denoising", "history_kv_across_steps": false, "duration_curriculum_seconds": [8, 16, 30]},
+    "causal_extension": {"status": "requires_separate_training", "within_block": "bidirectional", "between_blocks": "past/current only in self and AV cross attention", "history": "fixed clean conditioning", "cache": "rebuild when any dependency changes", "self_generated_history_ratio_candidates": [0.3, 0.7]}
+  },
+  "training": {
+    "candidate_only": true,
+    "s1_task_percent": {"base_av": 20, "image_reference": 30, "motion_camera": 20, "audio_reference": 20, "geometry": 10},
+    "s2_task_percent": {"base_av": 15, "reference": 20, "paired_edit": 30, "example_propagation": 20, "region": 15},
+    "s3_duration_bucket_percent": {"8": 30, "16": 30, "30": 40},
+    "adapter_lr": 0.0001,
+    "global_batch_candidate": 8,
+    "gradient_norm_clip": 1.0,
+    "initial_adapter_pilot_optimizer_updates": 1000,
+    "initial_adapter_pilot_warmup_updates": 100,
+    "initial_adapter_pilot_validation_interval": 100,
+    "initial_sigma_sampling": "native matched joint convention; clean conditioning modes trained explicitly",
+    "data_loader_extensions_required": ["speaker_binding", "geometry_confidence", "multiple_active_intervals", "audio_condition_status"],
+    "loss": "valid-element mean video flow + lambda_audio audio flow + task-specific region/preservation",
+    "lambda_audio_initial": 1.0,
+    "lambda_preservation_initial": 0.1,
+    "full_parameter_optimizer_state_estimate_gb": 304,
+    "optimizer_estimate_scope": "19B*16 bytes, decimal GB, excludes activations/text/VAEs/communication; not a measured requirement"
+  },
+  "unverified_gates": [
+    "reference compression retains small identity/product/voice details",
+    "new role and interval controls generalize to unseen scenes",
+    "joint 30-second quality remains stable through final seconds",
+    "local edit targets change while keep regions remain valid",
+    "speaker references match voice without copying unintended words/music",
+    "causal model matches its cache dependencies and long-rollout training distribution",
+    "actual hardware and delivery costs meet task constraints"
+  ]
+}

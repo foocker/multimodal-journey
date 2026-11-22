@@ -1,0 +1,14 @@
+{
+  "name": "multimodal-journey-reading",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "articles:build": "node scripts/build_articles.mjs"
+  },
+  "devDependencies": {
+    "katex": "0.16.22",
+    "markdown-it": "14.1.0",
+    "markdown-it-texmath": "1.0.0"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "kind": "analytic_demonstration",
+  "seed": null,
+  "stochastic": false,
+  "model_training": false,
+  "gpu_benchmark": false,
+  "probes": {
+    "shapes": {
+      "seedance_1_example": {
+        "latent": [
+          48,
+          31,
+          30,
+          52
+        ],
+        "tokens": 48360,
+        "element_ratio": 0.016012396694214875
+      },
+      "wan_example": {
+        "latent": [
+          16,
+          31,
+          60,
+          104
+        ],
+        "tokens": 48360,
+        "element_ratio": 0.02134986225895317
+      },
+      "note": "Same token grid does not imply compatible latent channels or weights."
+    },
+    "causality": {
+      "unchanged_prefix_outputs_checked": 28,
+      "scope": "1D temporal indexing only, not a real VAE"
+    },
+    "rope": {
+      "dot_original": -0.7201585545169019,
+      "dot_shifted": -0.720158554516902,
+      "absolute_error": 1.1102230246251565e-16
+    },
+    "attention": {
+      "example_connections": {
+        "full": 268435456,
+        "spatial": 16777216,
+        "pointwise_temporal": 262144,
+        "window_temporal": 1048576
+      },
+      "pointwise_keys": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "window_keys": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    "flow": {
+      "z_t": 8.0,
+      "target_velocity": 8.0,
+      "euler_to_zero": 2.0
+    },
+    "cache": {
+      "same_dependencies_reusable": true,
+      "prompt_change_invalidates": true,
+      "timestep_change_invalidates": true,
+      "scope": "Toy dependency counterexample; not an attention implementation"
+    }
+  }
+}

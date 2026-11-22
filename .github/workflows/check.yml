@@ -15,6 +15,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run articles:build
+      - run: python -m pip install -r requirements.txt
       - run: python scripts/check_repo.py
       - run: python -m unittest discover -s scripts/tests -v
       - run: python experiments/2026-11-19-compute-budget/run.py --check
+      - run: python experiments/2026-11-22-foundation-probes/run.py --check
+      - run: python scripts/training_data.py datasets/recipes/audio-video-production/example-records.jsonl

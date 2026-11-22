@@ -1,6 +1,6 @@
 ---
 status: draft
-updated: 2026-11-19
+updated: 2026-11-22
 source_ids: ["phantom"]
 topic_ids: ["video-generation"]
 ---
@@ -31,6 +31,12 @@ Subject-consistent video generation via cross-modal alignment：参考图中的�
 支持参考图控制与主体保持的技术逻辑；不能直接写成 Seedance 2.0 的具体控制模块。
 
 实验数据来自论文作者的设置，本仓库本轮没有重新训练或复测。对于闭源产品，没有披露的实现不能用相邻论文补齐为既定事实。
+
+## 2026-11-22 定点阅读：可变参考仍有成本
+
+v2 PDF pp.3–5 Figure 3–5：跨片段配对、VAE细节/CLIP语义双路径、动态窗口注入。不能把示意 token 数直接当成其他模型通用的窗口超参，也不能从支持可变参考推导无成本支持50路音视频参考。
+
+本仓库对 Wan 的独立 reference adapter 是候选新方案，和 Phantom 原 MMDiT 动态注入分开，见 [M07](../../algorithms/reference-conditioning/README.md)。未复现原 kernel，未证明进入2.5管线。
 
 ## 下一次阅读
 

@@ -56,6 +56,10 @@ Seedance 1.0 公开了线上提示词与人工偏好数据流程，但这不足�
 
 ## 7. 怎样继续验证
 
-下一轮先精读 Seedance 1.0 的训练与推理章节，并做 [多镜头参考数据配方](../../datasets/recipes/multishot-reference/README.md) 中的最小样本集。按 [应用评测框架](../../applications/video-production/evaluation.md) 记录可用率和返工，不以单个演示视频代替交付指标。
+2026-11-22 已对 Seedance 1.0 架构/训练/推理章节作定点核查，并增加 [M00–M14 基础与落地专题](seedance-2.5/README.md)。2.5 官方发布支持能力上限，没有确认全部内部模块；当前架构图是我们的候选方案。
+
+关键修正：1.0 p.12 描述直接最大化复合奖励且与 DPO/PPO/GRPO 比较，不能因引用 DanceGRPO 就认定直接采用。详见 [本轮纠错](../../research/2026-11-22-seedance-foundations/corrections.md)。
+
+下一步逐块审核原理/接口，再做真实素材小样本。按 [应用评测框架](../../applications/video-production/evaluation.md) 记录可用率与返工，不以单个演示代替交付指标。
 
 当前已经实现的 [成本演算](../../experiments/2026-11-19-compute-budget/README.md) 只是标明假设的算术工具；没有跑模型，也没有验证任何厂商的真实商业收益。

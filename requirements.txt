@@ -1,2 +1,3 @@
-# Optional: only required by scripts/papers.py extract.
+# Optional tools: PDF extraction and training-data schema validation.
 PyMuPDF>=1.24,<2
+jsonschema>=4.18,<5

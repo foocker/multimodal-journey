@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "topic_id": "video-generation",
-  "updated": "2026-11-19",
+  "updated": "2026-11-22",
   "review_status": "draft",
   "reviewer": null,
   "claims": [
@@ -218,6 +218,215 @@
       "evidence": [],
       "limits": "当前登记论文不足以确认整个组织/产品命题；需找到官方发布与可靠采访的原始记录。",
       "checked_on": "2026-11-19"
+    },
+    {
+      "id": "VG-016",
+      "statement": "Seedance 2.5 官方发布说明单次生成最长30秒，并支持在已有结果上延长。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-2.5-release",
+          "locator": "2026-07-31发布页；核心亮点及“30秒长叙事”段落",
+          "scope": "公开产品能力"
+        }
+      ],
+      "limits": "不证明内部采用LCT/LongLive；各入口时长和延长限制仍需接入时核查。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-017",
+      "statement": "Seedance 2.5 官方发布的单次参考上限为30张图片、10段视频、10段音频。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-2.5-release",
+          "locator": "2026-07-31发布页；“多模态参考能力全面升级”",
+          "scope": "文件数量上限"
+        }
+      ],
+      "limits": "不等于50个token或无成本参考，不确认Phantom产品部署。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-018",
+      "statement": "Seedance 2.5 官方发布说明支持时间戳定向编辑、白模参考、绿幕等编辑能力。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-2.5-release",
+          "locator": "2026-07-31发布页；白模参考与“更精准、稳定的编辑能力”",
+          "scope": "公开能力与示例"
+        }
+      ],
+      "limits": "不披露是否采用mesh encoder、inpainting或KV-cache；不保证任意工业任务物理精确。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-019",
+      "statement": "Seedance 2.5 发布页明确表示延续2.0统一多模态音视频联合生成架构。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-2.5-release",
+          "locator": "2026-07-31发布页开头",
+          "scope": "架构连续性的官方表述"
+        }
+      ],
+      "limits": "不确定各代精确分支、tokenizer、参数与层号相同。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-020",
+      "statement": "Seedance 1.0 披露VAE压缩率(4,16,16)、48通道和移除DiT侧patchification。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-1.0",
+          "locator": "arXiv 2506.09113v2, PDF p.4 §2.1",
+          "scope": "仅该固定版本的公开配置"
+        }
+      ],
+      "limits": "1/64为长序列元素比；首帧/字节比另算，不能直接指称2.5配置。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-021",
+      "statement": "Seedance 1.0 明确采用RayFlow score distillation，并扩展AdaSpa相关稀疏方案。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-1.0",
+          "locator": "arXiv 2506.09113v2, PDF pp.12–13 §5.1–5.2",
+          "scope": "直接方法使用/扩展的文字说明"
+        }
+      ],
+      "limits": "不代表完整照搬原方法或2.5采用同一版本；总加速不能全归于其中一项。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-022",
+      "statement": "Seedance 1.0 描述直接最大化复合奖励，并报告与DPO/PPO/GRPO比较。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "seedance-1.0",
+          "locator": "arXiv 2506.09113v2, PDF p.12 §4.4.3",
+          "scope": "该报告对自身反馈学习的描述"
+        }
+      ],
+      "limits": "不能因其引用DanceGRPO就称直接采用该框架，也不否定相关研究影响。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-023",
+      "statement": "Tarsier2 v1 从Qwen2-VL初始化，原始pretrain/SFT/DPO为全组件或全参训练。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "tarsier2",
+          "locator": "arXiv 2501.07888v1, PDF p.6 §3, pp.8–11, p.36 Table 12",
+          "scope": "固定版本训练描述"
+        }
+      ],
+      "limits": "与Seedance1.0下游caption适配冻结visual encoder不同；不把旧Tarsier结构套给它。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-024",
+      "statement": "Seedance 2.5 的确定内部管线为Phantom参考注入、LCT缓存编辑和DanceGRPO+RewardDance后训练。",
+      "status": "unverified",
+      "evidence": [
+        {
+          "source_id": "seedance-2.5-release",
+          "locator": "2026-07-31发布页全文；本轮2026-11-22访问",
+          "scope": "该页面描述能力，未定位支持此完整内部管线的披露"
+        }
+      ],
+      "limits": "相关论文可作候选方案，缺少直接采用证据不等于证明不可能采用。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-025",
+      "statement": "AlcheMinT 将参考图、实体词与索引绑定，并为参考主体加入时间区间控制。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "alchemint",
+          "locator": "CVPR 2026出版方11页版本，PDF pp.4–5，binding、WeRoPE和数据流程",
+          "scope": "作者的主体绑定与区间控制设计"
+        }
+      ],
+      "limits": "不证明Seedance采用该方法。equation 5的旋转线性表述有数学歧义，未作为已核实实现转抄；候选显式时间bias不是WeRoPE复现。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-026",
+      "statement": "VACE 用文本、帧和mask统一视觉条件，将待变与保留内容分别编码，再通过条件路径接入视频主干。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "vace",
+          "locator": "arXiv 2503.07598v2，PDF pp.3–5，VCU、concept decoupling与context adapter",
+          "scope": "统一视觉条件表示和两类调优路径"
+        }
+      ],
+      "limits": "框架统一不等于未训练任务自动出现；现有基座分支不自动成为原系列LTX-2的兼容插件，也未自动解决音频编辑。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-027",
+      "statement": "VideoCoF 保持源latent干净，将区域中间表示与目标放在联合去噪序列中并共同监督。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "videocof",
+          "locator": "CVPR 2026出版方10页版本，PDF pp.3–5，独立编码、拼接、噪声与训练目标",
+          "scope": "区域中间表示及联合去噪的具体建模"
+        }
+      ],
+      "limits": "不能将reason-then-edit直接解释为两条串行完整采样链；候选显式两阶段定位/编辑是不同执行设计。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-028",
+      "statement": "Geometry-as-Context 使用交错RGB/几何任务和相机门控注意力研究新视角生成与场景一致性。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "geometry-as-context",
+          "locator": "CVPR 2026出版方11页版本，PDF pp.3–6，任务序列、CGA和训练设置",
+          "scope": "交错几何上下文、相机条件及作者训练路线"
+        }
+      ],
+      "limits": "基座为BAGEL/FLUX-VAE，不是Wan/LTX插件；不证明任意白模约束、动态场景或工业尺寸都能精确遵循。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-029",
+      "statement": "LTX-2原系列提供14B视频流与5B音频流、原生音视频交换，以及各自的连续潜空间。",
+      "status": "supported",
+      "evidence": [
+        {
+          "source_id": "ltx-2",
+          "locator": "arXiv 2601.03233v1，PDF pp.4–8，AV结构与codec",
+          "scope": "作者报告的原系列联合主干、时间表示和codec"
+        },
+        {
+          "source_id": "ltx-original-code",
+          "locator": "commit bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638；types.py、video_vae.py、transformer.py与原系列LoRA配置",
+          "scope": "视频128通道与(8,32,32)压缩、音频内部布局及原系列接口；checkpoint配置仍需单独匹配"
+        }
+      ],
+      "limits": "当前后续型号与历史许可不能混用；现有LoRA配方不等于已包含候选多参考、编辑与因果续写接口。未运行代码。",
+      "checked_on": "2026-11-22"
+    },
+    {
+      "id": "VG-030",
+      "statement": "把LTX-2原系列与参考时间绑定、VACE式条件、区域定位和几何控制组合，即能达到Seedance 2.5的效果。",
+      "status": "unverified",
+      "evidence": [],
+      "limits": "当前仅形成有共同表示、接口和训练课程的完整候选设计；没有跨方法组合训练、30秒质量、多路参考上限或业务效果的实测。也不能据此恢复闭源产品的真实实现。",
+      "checked_on": "2026-11-22"
     }
   ]
 }

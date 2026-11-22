@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VideoTrainingRecord-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "record_id", "kind", "split", "task", "source_group", "dedupe_group", "identity_groups", "rights", "media", "subjects", "shot_ids", "caption", "references", "provenance"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "kind": {"enum": ["synthetic_example", "licensed_source", "model_generated"]},
+    "split": {"enum": ["example", "train", "validation", "test"]},
+    "task": {"enum": ["t2v", "reference", "edit", "continuation"]},
+    "source_group": {"type": "string", "minLength": 1},
+    "dedupe_group": {"type": "string", "minLength": 1},
+    "identity_groups": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "subjects": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "shot_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "rights": {
+      "type": "object", "additionalProperties": false, "required": ["status", "scope", "record"],
+      "properties": {"status": {"enum": ["approved", "pending", "synthetic_example"]}, "scope": {"type": "string", "minLength": 1}, "record": {"type": "string", "minLength": 1}}
+    },
+    "media": {
+      "type": "object", "additionalProperties": false,
+      "required": ["uri", "source_start_ms", "frames", "fps", "width", "height", "audio_present", "audio_sample_rate"],
+      "properties": {
+        "uri": {"type": "string", "minLength": 1}, "source_start_ms": {"type": "number", "minimum": 0},
+        "frames": {"type": "integer", "minimum": 1}, "fps": {"type": "number", "exclusiveMinimum": 0},
+        "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1},
+        "audio_present": {"type": "boolean"}, "audio_sample_rate": {"type": ["integer", "null"], "minimum": 1}
+      }
+    },
+    "caption": {
+      "type": "object", "additionalProperties": false, "required": ["global", "camera", "events"],
+      "properties": {
+        "global": {"type": "string", "minLength": 1}, "camera": {"type": "string", "minLength": 1},
+        "events": {"type": "array", "items": {"$ref": "#/$defs/event"}}
+      }
+    },
+    "references": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["asset_id", "uri", "source_group", "dedupe_group", "identity_groups", "sha256", "rights", "modality", "role", "subject_ids", "shot_ids", "start_ms", "end_ms"],
+        "properties": {
+          "asset_id": {"type": "string", "minLength": 1}, "uri": {"type": "string", "minLength": 1}, "source_group": {"type": "string", "minLength": 1},
+          "dedupe_group": {"type": "string", "minLength": 1},
+          "identity_groups": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+          "rights": {"$ref": "#/properties/rights"},
+          "modality": {"enum": ["image", "video", "audio", "structure"]},
+          "role": {"enum": ["identity", "appearance", "motion", "camera", "layout", "style", "voice", "history"]},
+          "subject_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+          "shot_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+          "start_ms": {"type": "number", "minimum": 0}, "end_ms": {"type": "number", "minimum": 0}
+        }
+      }
+    },
+    "edit": {
+      "type": "object", "additionalProperties": false, "required": ["source_uri", "source_group", "dedupe_group", "source_sha256", "mask_sha256", "rights", "start_ms", "end_ms", "mask_uri", "preserve", "change"],
+      "properties": {
+        "source_uri": {"type": "string", "minLength": 1}, "start_ms": {"type": "number", "minimum": 0}, "end_ms": {"type": "number", "minimum": 0},
+        "source_group": {"type": "string", "minLength": 1}, "dedupe_group": {"type": "string", "minLength": 1},
+        "source_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "mask_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "rights": {"$ref": "#/properties/rights"},
+        "mask_uri": {"type": "string", "minLength": 1},
+        "preserve": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "change": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "history_cutoff_ms": {"type": "number", "minimum": 0},
+    "provenance": {
+      "type": "object", "additionalProperties": false, "required": ["annotation_version", "transform_version", "media_sha256", "caption_model"],
+      "properties": {
+        "annotation_version": {"type": "string", "minLength": 1}, "transform_version": {"type": "string", "minLength": 1},
+        "media_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "caption_model": {"type": ["string", "null"]}
+      }
+    }
+  },
+  "$defs": {
+    "event": {
+      "type": "object", "additionalProperties": false, "required": ["start_ms", "end_ms", "description"],
+      "properties": {"start_ms": {"type": "number", "minimum": 0}, "end_ms": {"type": "number", "minimum": 0}, "description": {"type": "string", "minLength": 1}}
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"task": {"const": "edit"}}}, "then": {"required": ["edit"]}, "else": {"not": {"required": ["edit"]}}},
+    {"if": {"properties": {"task": {"const": "continuation"}}}, "then": {"required": ["history_cutoff_ms"]}, "else": {"not": {"required": ["history_cutoff_ms"]}}}
+  ]
+}

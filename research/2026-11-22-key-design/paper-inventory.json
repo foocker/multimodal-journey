@@ -1,0 +1,208 @@
+{
+  "checked_on": "2026-11-22",
+  "root": "downloads/曾妍_Seedance_论文与报道",
+  "files": [
+    {
+      "path": "01_X-VLM_ICML2022.pdf",
+      "sha256": "a650b881ba0c8aec25d25a6f10b8fc4ae5fdb9eeb700019fc189f3810d389639",
+      "source_id": "x-vlm",
+      "bytes": 22733188
+    },
+    {
+      "path": "02_PixelDance_CVPR2024.pdf",
+      "sha256": "400162a721fbf12c57226afbd75d4f0e239dbbc7fc0d13bbf4b89079d013b2cc",
+      "source_id": "pixeldance",
+      "bytes": 9244569
+    },
+    {
+      "path": "03_Seedance_2.0_2604.14148v1.pdf",
+      "sha256": "b8a169f36db23966158c7db305986fe89b2f3d945e45987290942842daedcac9",
+      "source_id": "seedance-2.0",
+      "bytes": 2983402
+    },
+    {
+      "path": "04_VINCIE-NExT_NeurIPS2026_2610.12104v1.pdf",
+      "sha256": "98e3b0425c6245dc73e548de52e520a3fbbeb0d68ba9be03904d34f979d18231",
+      "source_id": "vincie-next",
+      "bytes": 21888026
+    },
+    {
+      "path": "报道_29岁掌舵字节视频大模型_截图转录.pdf",
+      "sha256": "a85d5ff9865585f3c052ac4737731952d8cb2266fe3c867096f36e808ee6e70d",
+      "source_id": null,
+      "bytes": 178623
+    },
+    {
+      "path": "design-supplement-20261122/ltx-2-v1.pdf",
+      "sha256": "6499eb067744ab8d2564888f22acc8ec8c11d4e2b50169619d70e7e0886091bf",
+      "source_id": "ltx-2",
+      "bytes": 3032343
+    },
+    {
+      "path": "design-supplement-20261122/vace-v2.pdf",
+      "sha256": "951af6f6398929a8c3d5e992d0180899db24a6366b637bf8b767380b54281ce3",
+      "source_id": "vace",
+      "bytes": 20011191
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/05_Seaweed-7B_2504.08685v2.pdf",
+      "sha256": "62fbcec3637ad30ee0982a3193848e5285cdfe0156b0db666013b4c262528bb0",
+      "source_id": "seaweed-7b",
+      "bytes": 13689998
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/06_Seedance_1.0_2506.09113v2.pdf",
+      "sha256": "e4ec66efd7e354bc7b3d25478fc1cb21709d0dc907f70cee7000ad2bf036fd13",
+      "source_id": "seedance-1.0",
+      "bytes": 24836898
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/07_Seedance_1.5_Pro_2512.13507v3.pdf",
+      "sha256": "b9ace4794ebe437adeb9e3b63bdf66b2d8ab496adb5d9f0b5696a5bcb46f40b6",
+      "source_id": "seedance-1.5-pro",
+      "bytes": 3155692
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/08_DiT_2212.09748v2.pdf",
+      "sha256": "5fbb0ec35e3ae76826240171ca63ed4c27de6cb43180367453019e9d28a8b076",
+      "source_id": "dit",
+      "bytes": 43824062
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/09_DanceGRPO_2505.07818v4.pdf",
+      "sha256": "9600b2587fb5fff831ea34b29bdd8855db6cc4c7d5376099e1deebfbbe523708",
+      "source_id": "dancegrpo",
+      "bytes": 26736080
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/10_RewardDance_2509.08826v1.pdf",
+      "sha256": "c09a20debfcafb853a3db836614913bd25d54dc09fbdd9b06a8dca5c70ce917c",
+      "source_id": "rewarddance",
+      "bytes": 11777715
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/11_Seaweed_APT_2501.08316v3.pdf",
+      "sha256": "0f466f153647f4c9bb27a5bf88e79c83f3f0ebca5456d6edb1a1e1b7813f3b46",
+      "source_id": "seaweed-apt",
+      "bytes": 10178481
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/12_Adaptive_Sparse_Attention_2502.21079v1.pdf",
+      "sha256": "385f5c2a24921cff5db56e73b656c76d92203ab7885d040f0a78e489a0dfbc6b",
+      "source_id": "adaspa",
+      "bytes": 22703832
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/13_VINCIE_2506.10941v2.pdf",
+      "sha256": "ad7a382e905151b286cf0aadd15b20282c17ff9259941bd706384514c19eaa39",
+      "source_id": "vincie",
+      "bytes": 51959377
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/14_LoRA_2106.09685v2.pdf",
+      "sha256": "e9a0d3128767db616085dc0f4e6e455e672e89af823e8ed1282793682787395a",
+      "source_id": "lora",
+      "bytes": 1609513
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/15_Long_Context_Tuning_2503.10589v1.pdf",
+      "sha256": "2c301affc003325edf04177086e042c3a03b631084ea4ab02c041aeda76f0e1c",
+      "source_id": "long-context-tuning",
+      "bytes": 10168813
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/16_Phantom_2502.11079v2.pdf",
+      "sha256": "643e477719f256bfcbe254622858bb1531bd15703d3ad3c3d90bbf65f25cdf20",
+      "source_id": "phantom",
+      "bytes": 32046961
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/17_Video_DiT_Scaling_Laws_2411.17470v2.pdf",
+      "sha256": "b412e87304d7ab17a9aa4cec816fbf2d8ac4c220fc728c73590282a7c2f8a1fd",
+      "source_id": "video-dit-scaling-laws",
+      "bytes": 2075366
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/18_RayFlow_2503.07699v2.pdf",
+      "sha256": "eff89a4ba2179d318ef0f6fe32a12f2e2854408d0916d75500e09f24e8919677",
+      "source_id": "rayflow",
+      "bytes": 1532851
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/Girish_AlcheMinT_Fine-grained_Temporal_Control_for_Multi-Reference_Consistent_Video_Generation_CVPR_2026_paper.pdf",
+      "sha256": "1657b4098352a2270c993764a9ab7d1d3408c5355d4eef4b179204e62aecede0",
+      "source_id": "alchemint",
+      "bytes": 23772979
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/Hu_Geometry-as-context_Modulating_Explicit_3D_in_Scene-consistent_Video_Generation_to_Geometry_CVPR_2026_paper.pdf",
+      "sha256": "b2817bb1c656909fbb8ed927b9a3edda07b7c9c8be0d07d0a982ad7404a464d4",
+      "source_id": "geometry-as-context",
+      "bytes": 8909729
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/LongLive.pdf",
+      "sha256": "c02db70004d281be6f35b760052457b86860eebbb6356abd3044690a96b54905",
+      "source_id": "longlive",
+      "bytes": 24388253
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/MAGVIT-v2.pdf",
+      "sha256": "b393503a10d53239ff4ebc67124d99fcc96777e78e4d525b1dd17ba43a474537",
+      "source_id": "magvit-v2",
+      "bytes": 3608249
+    },
+    {
+      "path": "补充论文_技术演进与业务落地/VideoCoF.pdf",
+      "sha256": "f46af3ed9896877cff7c2f996f31f23f53552cd640d4d0f067f0d13318e51379",
+      "source_id": "videocof",
+      "bytes": 13193042
+    }
+  ],
+  "new_reading": [
+    {
+      "id": "alchemint",
+      "pdf_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Girish_AlcheMinT_Fine-grained_Temporal_Control_for_Multi-Reference_Consistent_Video_Generation_CVPR_2026_paper.pdf",
+      "edition_id": "cvpr2026",
+      "sha256": "1657b4098352a2270c993764a9ab7d1d3408c5355d4eef4b179204e62aecede0",
+      "bytes": 23772979,
+      "page_count": 11,
+      "title_text": "AlcheMinT: Fine-grained Temporal Control for Multi-Reference Consistent\nVideo Generation\nSharath Girish1\nViacheslav Ivanov1\nTsai-Shien Chen1,2\nHao Chen1\nAliaksandr Siarohin1\nSergey Tulyakov1\n1Snap Inc.\n2UC Merced\nProject page: https://snap-research.github.io/V"
+    },
+    {
+      "id": "geometry-as-context",
+      "pdf_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Hu_Geometry-as-context_Modulating_Explicit_3D_in_Scene-consistent_Video_Generation_to_Geometry_CVPR_2026_paper.pdf",
+      "edition_id": "cvpr2026",
+      "sha256": "b2817bb1c656909fbb8ed927b9a3edda07b7c9c8be0d07d0a982ad7404a464d4",
+      "bytes": 8909729,
+      "page_count": 11,
+      "title_text": "Geometry-as-context: Modulating Explicit 3D in Scene-consistent\nVideo Generation to Geometry Context\nJiaKui Hu1,2*, Jialun Liu2†, ‡, Liying Yang3,2,\nXinliang Zhang1, Kaiwen Li1, Shuang Zeng1, Yuanwei Li1, Haibin Huang2, Chi Zhang2, Yanye Lu1†\n1Institute of Med"
+    },
+    {
+      "id": "vace",
+      "pdf_url": "https://arxiv.org/pdf/2503.07598v2",
+      "edition_id": "v2",
+      "sha256": "951af6f6398929a8c3d5e992d0180899db24a6366b637bf8b767380b54281ce3",
+      "bytes": 20011191,
+      "page_count": 17,
+      "title_text": "VACE: All-in-One Video Creation and Editing\nZeyinzi Jiang*\nZhen Han∗\nChaojie Mao∗†\nJingfeng Zhang\nYulin Pan\nYu Liu\nTongyi Lab, Alibaba Group\nReference-to-video generation\nMasked Video-to-video editing\nSubject Removal (Inpainting)\nSubject Recreation (Inpainting"
+    },
+    {
+      "id": "ltx-2",
+      "pdf_url": "https://arxiv.org/pdf/2601.03233v1",
+      "edition_id": "v1",
+      "sha256": "6499eb067744ab8d2564888f22acc8ec8c11d4e2b50169619d70e7e0886091bf",
+      "bytes": 3032343,
+      "page_count": 14,
+      "title_text": "LTX-2: Efficient Joint Audio-Visual Foundation Model\nYoav HaCohen∗Benny Brazowski\nNisan Chiprut\nYaki Bitterman\nAndrew Kvochko\nAvishai Berkowitz\nDaniel Shalem\nDaphna Lifschitz\nDudu Moshe\nEitan Porat\nEitan Richardson\nGuy Shiran\nItay Chachy\nJonathan Chetboun\nMich"
+    },
+    {
+      "id": "videocof",
+      "pdf_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yang_VideoCoF_Unified_Video_Editing_with_Temporal_Reasoner_CVPR_2026_paper.pdf",
+      "edition_id": "cvpr2026",
+      "sha256": "f46af3ed9896877cff7c2f996f31f23f53552cd640d4d0f067f0d13318e51379",
+      "bytes": 13193042,
+      "page_count": 10
+    }
+  ]
+}

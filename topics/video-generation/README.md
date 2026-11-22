@@ -4,6 +4,8 @@
 
 ## 阅读入口
 
+- [Seedance 2.5：M00–M20](seedance-2.5/README.md)：从依赖基础到候选架构、数据/训练/推理、业务与代码，逐块阅读和修订。
+- [完整候选架构](seedance-2.5/integrated-design.md) 与 [联合训练配方](seedance-2.5/integrated-training.md)：以同一音视频主干组织多参考、编辑、空间控制与长叙事。
 - [演进综述](evolution.md)：当前理解与证据边界。
 - [时间线](timeline.md)：论文公开时间和技术问题，不把发布时间自动视为产品继承关系。
 - [结论与证据](claims.json)：稳定结论 ID、支持材料、原文定位与待核实项。

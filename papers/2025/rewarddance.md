@@ -1,6 +1,6 @@
 ---
 status: draft
-updated: 2026-11-19
+updated: 2026-11-22
 source_ids: ["rewarddance"]
 topic_ids: ["video-generation"]
 ---
@@ -31,6 +31,12 @@ topic_ids: ["video-generation"]
 这里的 26B 是奖励模型规模，不是 Seedance 生成器的参数量。实验中的效果和奖励鲁棒性应保留论文条件。
 
 实验数据来自论文作者的设置，本仓库本轮没有重新训练或复测。对于闭源产品，没有披露的实现不能用相邻论文补齐为既定事实。
+
+## 2026-11-22 定点阅读：奖励不是验收真值
+
+v1 PDF pp.5–6 Figure 3 给出带任务标准/参考比较的 yes/no 生成范式，反馈可用 P(yes|context)；26B 是奖励模型。论文特定设置的改善不能保证杜绝 hacking；奖励标准差不等于输出多样性，需要独立人工留出、重复/模板率和任务遵循检查。
+
+未确认 Seedance 2.5 使用哪个 reward model。训练对象与停止条件见 [M09](../../algorithms/post-training/README.md)。
 
 ## 下一次阅读
 

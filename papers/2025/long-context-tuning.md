@@ -1,6 +1,6 @@
 ---
 status: draft
-updated: 2026-11-19
+updated: 2026-11-22
 source_ids: ["long-context-tuning"]
 topic_ids: ["video-generation"]
 ---
@@ -31,6 +31,12 @@ topic_ids: ["video-generation"]
 这是 Seaweed 相关研究，且被 Seedance 1.0 的模型设计部分明确引用；不等于独立证明组织合并。
 
 实验数据来自论文作者的设置，本仓库本轮没有重新训练或复测。对于闭源产品，没有披露的实现不能用相邻论文补齐为既定事实。
+
+## 2026-11-22 定点阅读：训练与缓存
+
+v1 PDF pp.4–6 §3.2–3.4：global/shot 两层描述，场景全上下文、interleaved 3D RoPE、逐镜头异步噪声，再可选 context-causal 微调。镜头内双向与镜头间因果是不同可见性规则；先双向再因果是本文路线，不是证明其他训练顺序必然失效。
+
+缓存前提是历史隐藏状态及其条件依赖固定。全历史 attention 即便缓存投影，查询成本仍可累计二次；固定窗口才进一步约束增长。见 [M06](../../algorithms/long-video/README.md)。Seedance 1.0 的位置编码引用不能证明整套缓存训练已被采用。
 
 ## 下一次阅读
 

@@ -10,7 +10,7 @@ from urllib.parse import unquote, urlsplit
 
 from papers import ROOT, index_text, load_papers
 
-EXCLUDED = {'.git', '.cache', '.venv', '__pycache__', 'runs'}
+EXCLUDED = {'.git', '.cache', '.venv', '.venv-code', '__pycache__', 'runs', 'node_modules'}
 FORBIDDEN = {'.pdf', '.zip', '.mp4', '.mov', '.mkv', '.mp3', '.wav', '.pt', '.pth', '.ckpt', '.safetensors', '.parquet'}
 CLAIM_STATES = {'supported', 'partially_supported', 'unverified', 'contradicted', 'withdrawn'}
 
@@ -93,7 +93,7 @@ def main():
                     errors.append(f'{path.relative_to(ROOT)}: unknown source {source_id}')
         # Code samples and their placeholder paths are not live navigation links.
         text = re.sub(r'```.*?```', '', text, flags=re.S)
-        for target in re.findall(r'(?<!!)\[[^\]\n]*\]\(([^\s)]+)\)', text):
+        for target in re.findall(r'\[[^\]\n]*\]\(([^\s)]+)\)', text):
             target = unquote(target.strip('<>').split('#', 1)[0])
             if not target or urlsplit(target).scheme or target.startswith('//'):
                 continue

@@ -1,7 +1,7 @@
 ---
 status: draft
-updated: 2026-11-19
-source_ids: ["rayflow"]
+updated: 2026-11-22
+source_ids: ["rayflow", "seedance-1.0"]
 topic_ids: ["video-generation"]
 ---
 
@@ -31,6 +31,12 @@ Instance-Aware Diffusion Acceleration via Adaptive Flow Trajectories：解释低
 原论文主要做图像实验。和 Seedance 官方报告一起读，才能区分原方法的实验与视频系统对它的使用。
 
 实验数据来自论文作者的设置，本仓库本轮没有重新训练或复测。对于闭源产品，没有披露的实现不能用相邻论文补齐为既定事实。
+
+## 2026-11-22 核查使用关系
+
+Seedance 1.0 v2 PDF p.12 §5.1 直接写采用 RayFlow score distillation，是明确技术使用证据；同节还包括 TSCD 和 APT 扩展，不能把其总加速全部归给 RayFlow。2.5 是否使用该版本/后继方法未确认。
+
+本轮未重新推导 RayFlow 全部理论，不把“轨迹绝不相交、保证稳定”写成可直接交付的工程保证。当前少步数方案与测量协议见 [M10](../../algorithms/inference-optimization/README.md)。
 
 ## 下一次阅读
 

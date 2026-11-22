@@ -14,6 +14,7 @@
 
 ## 要验证的内容
 
+- [M14 业务问题与方案](solutions.md)：八类问题的技术/数据/验收映射，pilot、失败分流、记录与重试边界。
 - [评价方案](evaluation.md)：任务集、质量维度、失败分类和运行记录。
 - [单位经济模型](economics.md)：用交付结果核算成本，避免只比较单次生成价格。
 - [技术综述](../../topics/video-generation/evolution.md)：已知能力和公开证据范围。
