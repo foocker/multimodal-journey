@@ -1,26 +1,117 @@
 {
   "title": "视频生成：从基础机制到实施方案",
   "articles": [
-    {"id": "M00", "path": "topics/video-generation/seedance-2.5/evidence.md"},
-    {"id": "M01", "path": "algorithms/causal-video-vae/README.md"},
-    {"id": "M02", "path": "algorithms/flow-matching/README.md"},
-    {"id": "M03", "path": "algorithms/diffusion-transformers/README.md"},
-    {"id": "M04", "path": "algorithms/multimodal-position/README.md"},
-    {"id": "M05", "path": "algorithms/audio-video-joint/README.md"},
-    {"id": "M06", "path": "algorithms/long-video/README.md"},
-    {"id": "M07", "path": "algorithms/reference-conditioning/README.md"},
-    {"id": "M08", "path": "algorithms/video-editing/README.md"},
-    {"id": "M09", "path": "algorithms/post-training/README.md"},
-    {"id": "M10", "path": "algorithms/inference-optimization/README.md"},
-    {"id": "M11", "path": "datasets/recipes/audio-video-production/README.md"},
-    {"id": "M12", "path": "topics/video-generation/seedance-2.5/architecture.md"},
-    {"id": "M13", "path": "topics/video-generation/seedance-2.5/training.md"},
-    {"id": "M14", "path": "applications/video-production/solutions.md"},
-    {"id": "M15", "path": "docs/code-paths.md"},
-    {"id": "M16", "path": "topics/video-generation/seedance-2.5/reference-timeline.md"},
-    {"id": "M17", "path": "topics/video-generation/seedance-2.5/editing-conditions.md"},
-    {"id": "M18", "path": "topics/video-generation/seedance-2.5/geometry-control.md"},
-    {"id": "M19", "path": "topics/video-generation/seedance-2.5/integrated-design.md"},
-    {"id": "M20", "path": "topics/video-generation/seedance-2.5/integrated-training.md"}
+    {
+      "id": "M00",
+      "path": "topics/video-generation/seedance-2.5/evidence.md"
+    },
+    {
+      "id": "M01",
+      "path": "algorithms/causal-video-vae/README.md"
+    },
+    {
+      "id": "M02",
+      "path": "algorithms/flow-matching/README.md"
+    },
+    {
+      "id": "M03",
+      "path": "algorithms/diffusion-transformers/README.md"
+    },
+    {
+      "id": "M04",
+      "path": "algorithms/multimodal-position/README.md"
+    },
+    {
+      "id": "M05",
+      "path": "algorithms/audio-video-joint/README.md"
+    },
+    {
+      "id": "M06",
+      "path": "algorithms/long-video/README.md"
+    },
+    {
+      "id": "M07",
+      "path": "algorithms/reference-conditioning/README.md"
+    },
+    {
+      "id": "M08",
+      "path": "algorithms/video-editing/README.md"
+    },
+    {
+      "id": "M09",
+      "path": "algorithms/post-training/README.md"
+    },
+    {
+      "id": "M10",
+      "path": "algorithms/inference-optimization/README.md"
+    },
+    {
+      "id": "M11",
+      "path": "datasets/recipes/audio-video-production/README.md"
+    },
+    {
+      "id": "M12",
+      "path": "topics/video-generation/seedance-2.5/architecture.md"
+    },
+    {
+      "id": "M13",
+      "path": "topics/video-generation/seedance-2.5/training.md"
+    },
+    {
+      "id": "M14",
+      "path": "applications/video-production/solutions.md"
+    },
+    {
+      "id": "M15",
+      "path": "docs/code-paths.md"
+    },
+    {
+      "id": "M16",
+      "path": "topics/video-generation/seedance-2.5/reference-timeline.md"
+    },
+    {
+      "id": "M17",
+      "path": "topics/video-generation/seedance-2.5/editing-conditions.md"
+    },
+    {
+      "id": "M18",
+      "path": "topics/video-generation/seedance-2.5/geometry-control.md"
+    },
+    {
+      "id": "M19",
+      "path": "topics/video-generation/seedance-2.5/integrated-design.md"
+    },
+    {
+      "id": "M20",
+      "path": "topics/video-generation/seedance-2.5/integrated-training.md"
+    },
+    {
+      "id": "M21",
+      "path": "topics/video-generation/seedance-2.5/adapter-contract.md"
+    },
+    {
+      "id": "M22",
+      "path": "topics/video-generation/seedance-2.5/reference-binding-spec.md"
+    },
+    {
+      "id": "M23",
+      "path": "topics/video-generation/seedance-2.5/av-editing-spec.md"
+    },
+    {
+      "id": "M24",
+      "path": "topics/video-generation/seedance-2.5/long-video-spec.md"
+    },
+    {
+      "id": "M25",
+      "path": "topics/video-generation/seedance-2.5/data-training-spec.md"
+    },
+    {
+      "id": "M26",
+      "path": "topics/video-generation/seedance-2.5/inference-delivery-spec.md"
+    },
+    {
+      "id": "M27",
+      "path": "topics/video-generation/seedance-2.5/speculative-plan.md"
+    }
   ]
 }

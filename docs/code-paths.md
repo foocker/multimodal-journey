@@ -1,6 +1,6 @@
 ---
 status: draft
-updated: 2026-11-22
+updated: 2026-11-23
 source_ids: ["wan21-code", "diffsynth-code", "phantom-code", "longlive-code", "vincie-code", "ltx-code", "dancegrpo-code", "tarsier-code", "ltx-original-code", "vace-code", "videocof-code"]
 ---
 
@@ -8,7 +8,7 @@ source_ids: ["wan21-code", "diffsynth-code", "phantom-code", "longlive-code", "v
 
 理解一个视频模块时，几十行代码往往比完整训练框架更清楚；真正制作数据、训练和生成时，则应使用已经组织好模型加载、调度、分布式和输出流程的工程。这两种代码各有用途，不需要把教学片段扩写成另一个大型框架。
 
-这里把十二份本地机制示例与十个上游仓库对应起来，其中 LTX 原系列与当前版本分别固定。仓库版本、源码入口和许可证已经查阅，未运行模型或训练，也不据此承诺它们满足某个具体业务的效果与硬件条件。
+这里把十六份本地机制示例与十个上游仓库对应起来，其中 LTX 原系列与当前版本分别固定。仓库版本、源码入口和许可证已经查阅，未运行模型或训练，也不据此承诺它们满足某个具体业务的效果与硬件条件。
 
 ## 用极简代码理解一件事
 
@@ -26,6 +26,10 @@ source_ids: ["wan21-code", "diffsynth-code", "phantom-code", "longlive-code", "v
 | 参考时间门 | [reference_timing.py](../algorithms/examples/reference_timing.py) | 物理时间、软区间偏置；归属mask与null token另接 | 候选支路；不是WeRoPE复现 |
 | 统一视觉条件 | [condition_unit.py](../algorithms/examples/condition_unit.py) | 待变/保留拆分、时间与空间编辑范围 | VACE条件与mask预处理 |
 | 相机射线 | [camera_rays.py](../algorithms/examples/camera_rays.py) | camera-to-world、方向与矩、单位一致 | 结构条件投影由候选工程新增 |
+| 候选参考残差 | [gated_condition.py](../algorithms/examples/gated_condition.py) | 输入/输出宽度、零门控、非零投影初始化 | LTX块循环需新增支路调用 |
+| 干净条件与活动目标 | [condition_state.py](../algorithms/examples/condition_state.py) | 逐token sigma、逐样本Euler步长、已知区覆盖 | LTX训练strategy与采样器需新增任务状态 |
+| 音视频块因果 | [block_causal_mask.py](../algorithms/examples/block_causal_mask.py) | 视频/音频self和双向AV都限制未来 | LongLive机制；LTX四类调用需改造 |
+| 逐样本有效损失 | [masked_sample_loss.py](../algorithms/examples/masked_sample_loss.py) | 先对有效元素平均，排除没有监督的样本 | 自定义strategy；分布式计数另接 |
 
 示例的约束写在各文件开头：有的省略多头，有的要求每个 query 至少有一个有效参考，有的只支持整除的空间窗口。它们解释依赖关系，不负责补齐生产环境中的所有分支，也不能直接加载这些仓库的 checkpoint。
 
@@ -102,6 +106,9 @@ source_ids: ["wan21-code", "diffsynth-code", "phantom-code", "longlive-code", "v
 - [transformer.py](https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/model/transformer/transformer.py)：原生AV交互、调制和门控。
 - [video_vae.py](https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/model/video_vae/video_vae.py)：视频编码、解码与原生归一化。
 - [音视频LoRA配置](https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/configs/ltx2_av_lora.yaml) 与 [视频条件IC-LoRA配置](https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/configs/ltx2_v2v_ic_lora.yaml)：已有策略、组件和参数组的落地起点。
+- [model.py](https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/model/transformer/model.py) 与 [transformer_args.py](https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/model/transformer/transformer_args.py)：块循环、逐token噪声调制及候选支路插入位置。
+- [text_to_video.py](https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/src/ltx_trainer/training_strategies/text_to_video.py) 与 [video_to_video.py](https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/src/ltx_trainer/training_strategies/video_to_video.py)：前者可联合训练AV，后者是视频参考拼接；不能直接把后者当成联合音频编辑。
+- [timestep_samplers.py](https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/src/ltx_trainer/timestep_samplers.py) 与 [trainer.py](https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/src/ltx_trainer/trainer.py)：长度外推、参数收集与权重保存；新增模块和完整恢复状态需要显式扩展。
 
 这些配置没有自动包含候选方案的多参考池化、角色时间绑定、VACE式支路或因果续写；新增接口与任务仍需实现。该历史commit的 [根许可证](https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/LICENSE) 是 LTX-2 Community License，应按历史版本记录，不能回填当前版本的Apache代码许可结论。
 
@@ -151,7 +158,7 @@ source_ids: ["wan21-code", "diffsynth-code", "phantom-code", "longlive-code", "v
 
 它们可以共享任务规格、素材和评价方法，但训练入口、权重、scheduler 和条件接口并不自动兼容。只有明确需要修改的接口时，才把某个机制迁入另一个基座。
 
-10个仓库的11份固定版本记录与44个代码/配置入口登记在 [sources/code.json](../sources/code.json)。需要阅读固定版本时，可以使用以下形式获取源码；安装、权重与启动参数以相应版本的说明为准：
+10个仓库的11份固定版本记录与57个代码/配置入口登记在 [sources/code.json](../sources/code.json)。需要阅读固定版本时，可以使用以下形式获取源码；安装、权重与启动参数以相应版本的说明为准：
 
 ```bash
 git clone https://github.com/Wan-Video/Wan2.1.git

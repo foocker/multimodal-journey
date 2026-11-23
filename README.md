@@ -6,8 +6,9 @@
 
 ## 从这里开始
 
-- [Seedance 2.5：基础到落地，M00–M20](topics/video-generation/seedance-2.5/README.md)：基础、数据、训练、推理、业务、代码与完整候选方案。
-- [代码路线与仓库选择](docs/code-paths.md)：12 份极简机制代码，10 个上游仓库的 11 份固定版本记录、44 个源码/配置入口。
+- [Seedance 2.5完整推测方案](topics/video-generation/seedance-2.5/speculative-plan.md)：以稳定主干为前提，明确数据、条件插件、训练优化、成本和行业应用各自的目的与投入。
+- [Seedance 2.5：基础到落地，M00–M27](topics/video-generation/seedance-2.5/README.md)：基础、数据、训练、推理、业务、代码、完整候选方案与实现规格。
+- [代码路线与仓库选择](docs/code-paths.md)：16 份极简机制代码，10 个上游仓库的 11 份固定版本记录、57 个源码/配置入口。
 - [视频生成专题](topics/video-generation/README.md)：技术演进、论文路线、证据与待核实问题。
 - [论文索引](papers/README.md)：28 篇论文的 URL、版本、阅读笔记与证据定位。
 - [第一轮研究日志](research/2026-11-19-seedance/README.md)：问题如何提出、查找过程、历史代码、初稿和纠错。
@@ -79,8 +80,8 @@ PDF 默认保存在 `.cache/papers/`；目录可通过 `--cache-dir` 指定。�
 
 ## 当前进度
 
-28 篇论文已登记。21 篇独立文章使用 `$`/`$$` 公式、论文裁图和离线阅读环境，覆盖基础、代码选型与完整候选方案；研究定位与纠错留在独立记录。代码层补充 12 份极简机制片段，并为 10 个上游仓库登记 11 份固定版本、44 个源码/配置入口；按用户要求未运行这些教学片段。
+28 篇论文已登记。28 篇独立文章使用 `$`/`$$` 公式、论文裁图和离线阅读环境，覆盖基础、代码选型、完整候选方案及实现规格；最终推测方案按用户要求保留可点击引用，其余文章的定位与纠错留在独立记录。代码层包含 16 份极简机制片段，并为 10 个上游仓库登记 11 份固定版本、57 个源码/配置入口；按用户要求未运行这些教学片段。
 
-各块仍为 draft，待 [逐块审核](topics/video-generation/seedance-2.5/review.md)。完整联合方案已选定共同主干、参考/编辑/几何接口及训练课程，见 [候选架构](topics/video-generation/seedance-2.5/integrated-design.md) 与 [训练配方](topics/video-generation/seedance-2.5/integrated-training.md)。尚无真实模型训练、推理性能实测或业务试验结果；本次补充见 [关键设计研究](research/2026-11-22-key-design/README.md)。
+各块仍为 draft，待 [逐块审核](topics/video-generation/seedance-2.5/review.md)。完整联合方案见 [候选架构](topics/video-generation/seedance-2.5/integrated-design.md) 与 [训练配方](topics/video-generation/seedance-2.5/integrated-training.md)；实现规格进一步固定原系列19B开发模型、12处支路接口、主体/声音绑定、编辑状态、因果缓存、训练及交付预算。权重只读取配置和文件头，未下载张量载荷。尚无真实模型训练、推理性能实测或业务试验结果；本轮来源、修订与验证见 [实现契约研究](research/2026-11-22-implementation-contracts/README.md)。
 
 后续优先任务见 [路线图](docs/roadmap.md)。

@@ -1,0 +1,52 @@
+{
+  "checked_on": "2026-11-23",
+  "status": "completed_for_document_scope",
+  "scope": "source identity, document structure, arithmetic and offline article rendering only",
+  "mechanism_examples_executed": false,
+  "model_code_executed": false,
+  "training_executed": false,
+  "tensor_payload_downloaded_bytes": 0,
+  "scientific_reproduction": false,
+  "source_identity_checks": {
+    "selected_code_file_hashes_matched": 13,
+    "small_model_metadata_file_hashes_matched": 7,
+    "native_json_header_hash_matched": true,
+    "native_json_header_bytes": 603120,
+    "checks_used": "standard-library text/JSON/hash reads, no imported model code"
+  },
+  "repository_check": {
+    "command": "python scripts/check_repo.py",
+    "exit_code": 0,
+    "paper_records": 28,
+    "other_sources": 19,
+    "scope": "JSON, citations, local links and external artifact boundaries"
+  },
+  "article_build": {
+    "command": "npm run articles:build",
+    "exit_code": 0,
+    "articles": 28,
+    "rendered_math_uses": 278,
+    "illustration_uses": 16,
+    "output": ".cache/reading/",
+    "final_proposal": ".cache/reading/m27.html"
+  },
+  "offline_document_checks": {
+    "articles": 28,
+    "viewport_widths": [1280, 390],
+    "document_viewport_checks": 56,
+    "passed": true,
+    "checks": ["math counts and rendering errors", "image loading", "embedded fonts", "page overflow", "external resource requests", "browser errors"],
+    "report": ".cache/reading/implementation-visual-checks.json",
+    "manually_inspected": ["M27 desktop opening", "M27 mobile opening", "M27 mobile formula", "M21 mobile formula"],
+    "script_scope": "local HTML layout only; no mechanism or model code imported"
+  },
+  "arithmetic_checks": {
+    "explicit_dense_attention_gib": 99.064697265625,
+    "reference_kv_decimal_mb": 50.331648,
+    "source_condition_cache_decimal_mb": 500.957184,
+    "gpu_measurements": false,
+    "seedance_prices_verified": false
+  },
+  "git_diff_check": "passed",
+  "commit_or_push_performed": false
+}

@@ -81,7 +81,7 @@ PDF 在 `sources/papers.json` 中保留 URL、版本、SHA-256、页数和检查
 
 ## 暂时采用的约定
 
-2026-11-22 增加 `topics/video-generation/seedance-2.5/` 作为 M00–M20 的学习/设计/审核入口。通用基础仍只放 `algorithms/`，数据配方/业务方案沿用各自目录，避免按品牌复制全部知识。Wan 轻量路线与 LTX 原系列联合候选方案各自保留表示和训练边界；新的 training record schema 面向单任务样本，与旧的多镜头 scene schema 并存，互不静默升级。
+2026-11-22 增加 `topics/video-generation/seedance-2.5/` 作为学习/设计/审核入口，后续扩展至 M00–M27；M21–M26细化模块、绑定、编辑、长视频、训练和交付协议，M27形成有引用的最终推测方案与投入选择，不复制原有基础文章。通用基础仍只放 `algorithms/`，数据配方/业务方案沿用各自目录，避免按品牌复制全部知识。Wan 轻量路线与 LTX 原系列联合候选方案各自保留表示和训练边界；新的 training record schema 面向单任务样本，与旧的多镜头 scene schema 并存，互不静默升级。
 
 来源目录以 JSON 为准，Markdown 索引由工具生成。当前不引入数据库、专用知识库服务或自动论文打分；等实际检索、协作规模产生需要时再调整。结构变更写进本文件，并保持旧链接可追溯。
 

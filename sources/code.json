@@ -386,7 +386,7 @@
         }
       ],
       "limits": "固定2026-01原系列版本；不能与后来LTX2.5的checkpoint、文本和codec混用。该历史commit根LICENSE为LTX-2 Community License，不能套用当前版本Apache代码许可。",
-      "verification": "Selected source, configuration and license read; not executed",
+      "verification": "Selected source locations, model configuration, training strategies, parameter collection and checkpoint paths inspected as text; no execution",
       "entries": [
         {
           "path": "packages/ltx-core/src/ltx_core/types.py",
@@ -417,6 +417,84 @@
           "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/configs/ltx2_v2v_ic_lora.yaml",
           "sha256": "a168c479a838aa4de656641f216abad3e248b3c2588db2153ef3590430f60abc",
           "role": "ltx2_v2v_ic_lora.yaml"
+        },
+        {
+          "path": "packages/ltx-core/src/ltx_core/model/transformer/model.py",
+          "role": "model.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/model/transformer/model.py",
+          "sha256": "81d300d7af3aa9ca7ad692640df90a95f49789007ab909dd3880ad02f843a8d0"
+        },
+        {
+          "path": "packages/ltx-core/src/ltx_core/model/transformer/modality.py",
+          "role": "modality.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/model/transformer/modality.py",
+          "sha256": "19c5a83c8e8ef49effbac662377a6f74539fc2ab12c62a6ce67982a50c3ff8fd"
+        },
+        {
+          "path": "packages/ltx-core/src/ltx_core/model/transformer/transformer_args.py",
+          "role": "transformer_args.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/model/transformer/transformer_args.py",
+          "sha256": "c1092f84f8ef68b44f8c879d7d2ece4a85a11ab1ed4459a8f33b93e64e9d43e4"
+        },
+        {
+          "path": "packages/ltx-core/src/ltx_core/model/transformer/model_configurator.py",
+          "role": "model_configurator.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/model/transformer/model_configurator.py",
+          "sha256": "cc9e5c4ca1beb9ea69a974da16da4f22b21d41091dbf06dcee4cb02f2f65d134"
+        },
+        {
+          "path": "packages/ltx-core/src/ltx_core/model/transformer/attention.py",
+          "role": "attention.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/model/transformer/attention.py",
+          "sha256": "acfdbb3f1423ebc709323b83c6e256c74acb33f768ad04a7a437f17adbf70b68"
+        },
+        {
+          "path": "packages/ltx-core/src/ltx_core/components/patchifiers.py",
+          "role": "patchifiers.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/components/patchifiers.py",
+          "sha256": "65ae83be774f1c10dbda5de16891d2a2554207da27e9bd1017468cdc39b4a07d"
+        },
+        {
+          "path": "packages/ltx-core/src/ltx_core/components/diffusion_steps.py",
+          "role": "diffusion_steps.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/components/diffusion_steps.py",
+          "sha256": "4b15c685bff2894885e42d6bbb784d1e14b7592f971fb52dbf0e5fa0e4e20339"
+        },
+        {
+          "path": "packages/ltx-core/src/ltx_core/components/schedulers.py",
+          "role": "schedulers.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-core/src/ltx_core/components/schedulers.py",
+          "sha256": "c0bf033667bae80714fc8441d88caf72a4a0cfb056f9a80f902eadc2d36800d1"
+        },
+        {
+          "path": "packages/ltx-trainer/src/ltx_trainer/training_strategies/base_strategy.py",
+          "role": "base_strategy.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/src/ltx_trainer/training_strategies/base_strategy.py",
+          "sha256": "b95be55e0ae74229cac8d4aad97bc33487ea44d7fcc760d9dcbfce46bc13327e"
+        },
+        {
+          "path": "packages/ltx-trainer/src/ltx_trainer/training_strategies/text_to_video.py",
+          "role": "text_to_video.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/src/ltx_trainer/training_strategies/text_to_video.py",
+          "sha256": "0334f9a7c5b73462a061c54f769305461ed74a488c2a02b0d70b02db9304bef0"
+        },
+        {
+          "path": "packages/ltx-trainer/src/ltx_trainer/training_strategies/video_to_video.py",
+          "role": "video_to_video.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/src/ltx_trainer/training_strategies/video_to_video.py",
+          "sha256": "0956265a39b9edfb3e1bfd586d2c78d23d3d9c49414c3813d903638cdecaca9c"
+        },
+        {
+          "path": "packages/ltx-trainer/src/ltx_trainer/timestep_samplers.py",
+          "role": "timestep_samplers.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/src/ltx_trainer/timestep_samplers.py",
+          "sha256": "d5ef8abfd3c49e1b3f8e308b3c304c603b187e5af52d972faea0f16b83c9bf6d"
+        },
+        {
+          "path": "packages/ltx-trainer/src/ltx_trainer/trainer.py",
+          "role": "trainer.py",
+          "url": "https://github.com/Lightricks/LTX-2/blob/bd92a5f408eb8c99f8c05e9fe2fcaaec8b56b638/packages/ltx-trainer/src/ltx_trainer/trainer.py",
+          "sha256": "054011d8963916097693c4f8881273bbc0651c57c5509901e0a3d9765025d010"
         }
       ]
     },
